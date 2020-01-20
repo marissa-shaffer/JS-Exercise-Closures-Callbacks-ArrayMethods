@@ -88,8 +88,8 @@ function processLastItem(stringList, callback){
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
+function processSum(numbersList, callback) {
+  return callback()
 }
 
 /**
@@ -199,8 +199,12 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+  let names = [];
+  runners.map(people => {
+    names.push(people.first_name.toUpperCase());
+  })
+  return names;
 }
 
 /**
@@ -216,8 +220,9 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize) {
+  return runners.filter(person => 
+    person.shirt_size === tShirtSize)
 }
 
 /**
@@ -230,8 +235,8 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  
 }
 
 /////////////// CLOSURES ///////////////
@@ -279,8 +284,17 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(limit) {
+  let count = 0;
+
+  return function() {
+    if (count < limit){
+    return count++;
+    }else {
+      count = 0;
+      return limit;
+    }
+  }
 }
 
 /////////////// END OF CHALLENGE ///////////////
