@@ -89,8 +89,8 @@ function processLastItem(stringList, callback){
  * should return 1000.
 */
 function processSum(numberList, callback) {
-  const sum = numberList.reduce ((accum, currentValue) => {return accum + currentValue;
-    },0)
+  const sum = numberList.reduce ((accumulator, currentValue) => {return accumulator + currentValue;
+    }, 0)
   return callback(sum);
 
 /**
@@ -162,7 +162,7 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
 }
 
@@ -297,7 +297,7 @@ function counterMakerWithLimit(limit) {
   return function() {
     if (count < limit){
     return count++;
-    }else {
+    } else {
       count = 0;
       return limit;
     }
