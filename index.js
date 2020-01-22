@@ -68,7 +68,7 @@ function processLength(list, callback) {
  * should return 'barbar'.
 */
 function processLastItem(stringList, callback){
-  return callback(stringList.length -1);
+  return callback(stringList[stringList.length-1]);
 }
 
 /**
@@ -88,9 +88,10 @@ function processLastItem(stringList, callback){
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(numbersList, callback) {
-  return callback()
-}
+function processSum(numberList, callback) {
+  const sum = numberList.reduce ((accum, currentValue) => {return accum + currentValue;
+    },0)
+  return callback(sum);
 
 /**
  * ### Challenge `processProduct`
@@ -110,8 +111,9 @@ function processSum(numbersList, callback) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
+function processProduct(num1, num2, callback) {
+  const product = num1 * num2;
+  return callback (product);
 }
 
 /**
@@ -134,8 +136,11 @@ function processProduct(/* CODE HERE */) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
 */
-function processContains(/* CODE HERE */) {
-  /* CODE HERE */
+function processContains(item, list, callback) {
+  const bool = list.filter (bool => bool === item);
+  if (bool.length > 0) {
+    return callback (true);
+  } else return callback (false);
 }
 
 /**
@@ -235,7 +240,7 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(runners) {
+function tallyUpDonations() {
   
 }
 
