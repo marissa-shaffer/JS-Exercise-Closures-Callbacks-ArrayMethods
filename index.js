@@ -240,8 +240,11 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations() {
-  
+function tallyUpDonations(runners) {
+  const totalDonations = runners.reduce(function(totalAmount, currentValue){
+    return totalAmount + currentValue.donations;
+  }, 0);
+  return totalDonations;
 }
 
 /////////////// CLOSURES ///////////////
@@ -261,10 +264,9 @@ function tallyUpDonations() {
  * etc
 */
 function counterMaker() {
-  // BROKEN CODE STARTS
-  const count = 0;
+  let count = -1;
   function counter() {
-    ++count
+    return ++count;
   }
   // BROKEN CODE ENDS
 }
